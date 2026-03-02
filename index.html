@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#0f0f0f" />
+    <meta name="description" content="Transcribe audio entirely in your browser using Whisper AI" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/pwa-192x192.png" />
+    <title>Whisper PWA</title>
+  </head>
+  <body>
+    <header class="header">
+      <h1 data-i18n="app_title">Whisper PWA</h1>
+      <div class="header-actions">
+        <button id="install-btn" class="btn-icon" hidden data-i18n="btn_install">Install app</button>
+        <button id="lang-toggle" class="btn-icon">ES</button>
+      </div>
+    </header>
+
+    <main class="main">
+      <p class="subtitle" data-i18n="app_subtitle">Transcribe audio entirely in your browser</p>
+
+      <!-- Drop zone -->
+      <div id="drop-zone" class="drop-zone">
+        <div class="drop-zone-icon">🎙</div>
+        <div class="drop-zone-text" data-i18n="drop_zone">Drop audio file here or tap to select</div>
+        <div class="drop-zone-formats" data-i18n="supported_formats">MP3, M4A, WAV, OGG, FLAC, OPUS, WEBM, AAC</div>
+        <input id="file-input" class="file-input" type="file" accept="audio/*,.mp3,.m4a,.wav,.ogg,.flac,.opus,.webm,.aac,.amr,.wma" />
+      </div>
+
+      <!-- File info (shown after selection) -->
+      <div id="file-info" class="file-info" hidden>
+        <span id="file-name"></span>
+        <span id="file-size"></span>
+      </div>
+
+      <!-- Error -->
+      <div id="error-msg" class="error-msg" hidden></div>
+
+      <!-- Progress -->
+      <div id="progress-section" class="progress-section" hidden>
+        <div class="progress-bar-container">
+          <div id="progress-bar" class="progress-bar"></div>
+        </div>
+        <div id="progress-text" class="progress-text"></div>
+      </div>
+
+      <!-- Result -->
+      <div id="result-section" class="result-section" hidden>
+        <div class="result-label" data-i18n="result_label">Transcription</div>
+        <div id="result-text" class="result-text"></div>
+        <div class="result-actions">
+          <button id="btn-copy" class="btn btn-primary" data-i18n="btn_copy">Copy</button>
+          <button id="btn-new" class="btn btn-secondary" data-i18n="btn_new">New transcription</button>
+        </div>
+      </div>
+
+      <!-- iOS install hint -->
+      <p id="ios-install-hint" class="ios-hint" hidden data-i18n="ios_install_hint"></p>
+    </main>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
