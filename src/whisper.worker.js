@@ -39,6 +39,7 @@ self.addEventListener('message', async (e) => {
     self.postMessage({ status: 'transcribing', progress: 0 });
 
     const result = await pipe(audio, {
+      task: 'transcribe',
       chunk_length_s: 30,
       stride_length_s: 5,
       return_timestamps: false,
